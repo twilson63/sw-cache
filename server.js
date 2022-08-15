@@ -1,8 +1,8 @@
 import express from 'express'
 import cors from 'cors'
-import WarpSDK from 'warp-contracts'
-//const WarpSDK = await import('warp-contracts/cjs')
-const warp = WarpSDK.WarpFactory.forMainnet()
+import { WarpFactory } from './warp/lib/cjs/index.js'
+
+const warp = WarpFactory.forMainnet()
 
 const app = express()
 
