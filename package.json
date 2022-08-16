@@ -6,9 +6,6 @@
   "repository": "https://github.com/twilson63/stamp-cache.git",
   "author": "Tom Wilson <tom@hyper.io>",
   "license": "MIT",
-  "engines": {
-    "node": "v18"
-  },
   "dependencies": {
     "arweave": "^1.11.6",
     "cors": "^2.8.5",
@@ -18,6 +15,7 @@
     "typescript": "^4.7.4"
   },
   "scripts": {
-    "build": "cd warp && yarn && yarn build"
+    "build": "cd warp && yarn && yarn build",
+    "start": "node server.js"
   }
 }
