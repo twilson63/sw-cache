@@ -17,5 +17,8 @@
   "scripts": {
     "build": "cd warp && yarn && yarn build",
     "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=16"
   }
 }
