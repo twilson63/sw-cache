@@ -1,6 +1,6 @@
-import express from 'express'
-import cors from 'cors'
-import { WarpFactory } from './warp/lib/cjs/index.js'
+const express = require('express')
+const cors = require('cors')
+const { WarpFactory } = require('warp-contracts')
 
 const warp = WarpFactory.forMainnet()
 
@@ -16,7 +16,8 @@ app.get('/:contract', async (req, res) => {
     const result = await warp.contract(req.params.contract)
       .setEvaluationOptions({
         allowUnsafeClient: true,
-        allowBigInt: true
+        allowBigInt: true,
+        internalWrites: true
       }).readState()
     res.send(result.cachedValue.state)
   } catch (e) {
