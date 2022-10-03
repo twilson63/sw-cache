@@ -1,7 +1,7 @@
 const express = require('express')
 const cors = require('cors')
 const Arweave = require('arweave')
-const { WarpNodeFactory } = require('warp1')
+const { WarpNodeFactory, LoggerFactory } = require('warp1')
 const { WarpFactory } = require('warp-contracts')
 
 const arweave = Arweave.init({
@@ -9,27 +9,36 @@ const arweave = Arweave.init({
   port: 443,
   protocol: 'https'
 })
+LoggerFactory.INST.logLevel('fatal')
 const warp = WarpNodeFactory.memCached(arweave)
 const warp2 = WarpFactory.forMainnet()
 const app = express()
 
+warp.contract('aSMILD7cEJr93i7TAVzzMjtci_sGkXcWnqpDkG6UGcA')
+  .setEvaluationOptions({
+    allowUnsafeClient: true,
+    allowBigInt: true,
+    internalWrites: true
+  }).readState()
+  .then(_ => console.log('preloading stamps contract...'))
+
 app.use(cors({ credentials: true }))
 
-app.get('/aSMILD7cEJr93i7TAVzzMjtci_sGkXcWnqpDkG6UGcA', async (req, res) => {
-  try {
-    const result = await warp2.contract('aSMILD7cEJr93i7TAVzzMjtci_sGkXcWnqpDkG6UGcA')
-      .setEvaluationOptions({
-        allowUnsafeClient: true,
-        allowBigInt: true,
-        internalWrites: true
-      }).readState()
-    //console.log(result)
-    res.send(result.cachedValue.state)
-    //res.send(result.cache)
-  } catch (e) {
-    res.status(404).send({ message: 'not found!' })
-  }
-})
+// app.get('/aSMILD7cEJr93i7TAVzzMjtci_sGkXcWnqpDkG6UGcA', async (req, res) => {
+//   try {
+//     const result = await warp2.contract('aSMILD7cEJr93i7TAVzzMjtci_sGkXcWnqpDkG6UGcA')
+//       .setEvaluationOptions({
+//         allowUnsafeClient: true,
+//         allowBigInt: true,
+//         internalWrites: true
+//       }).readState()
+//     //console.log(result)
+//     res.send(result.cachedValue.state)
+//     //res.send(result.cache)
+//   } catch (e) {
+//     res.status(404).send({ message: 'not found!' })
+//   }
+// })
 
 app.get('/:contract', async (req, res) => {
   if (!req.params.contract) {
@@ -42,7 +51,7 @@ app.get('/:contract', async (req, res) => {
         allowBigInt: true,
         internalWrites: true
       }).readState()
-    console.log(result)
+    //console.log(result)
     //res.send(result.cachedValue.state)
     res.send(result.state)
   } catch (e) {
