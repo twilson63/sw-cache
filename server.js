@@ -11,25 +11,25 @@ const arweave = Arweave.init({
   protocol: 'https'
 })
 LoggerFactory.INST.logLevel('fatal')
-const warp = WarpNodeFactory.fileCached(arweave, path.join(__dirname, 'cache1'))
-//const warp2 = WarpFactory.forMainnet()
+const warp = WarpNodeFactory.memCached(arweave) //.fileCached(arweave, path.join(__dirname, 'cache1'))
+const warp2 = WarpFactory.forMainnet()
 const app = express()
 
-warp.contract('aSMILD7cEJr93i7TAVzzMjtci_sGkXcWnqpDkG6UGcA')
-  .setEvaluationOptions({
-    allowUnsafeClient: true,
-    allowBigInt: true,
-    internalWrites: true
-  }).readState()
-  .then(_ => console.log('preloading stamps contract...'))
+// warp.contract('aSMILD7cEJr93i7TAVzzMjtci_sGkXcWnqpDkG6UGcA')
+//   .setEvaluationOptions({
+//     allowUnsafeClient: true,
+//     allowBigInt: true,
+//     internalWrites: true
+//   }).readState()
+//   .then(_ => console.log('preloading stamps contract...'))
 
-warp.contract('aSMILD7cEJr93i7TAVzzMjtci_sGkXcWnqpDkG6UGcA')
-  .setEvaluationOptions({
-    allowUnsafeClient: true,
-    allowBigInt: true,
-    internalWrites: true
-  }).readState()
-  .then(_ => console.log('preloading bar contract...'))
+// warp.contract('mMffEC07TyoAFAI_O6q_nskj2bT8n4UFvckQ3yELeic')
+//   .setEvaluationOptions({
+//     allowUnsafeClient: true,
+//     allowBigInt: true,
+//     internalWrites: true
+//   }).readState()
+//   .then(_ => console.log('preloading bar contract...'))
 
 app.use(cors({ credentials: true }))
 
