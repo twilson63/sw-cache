@@ -1,3 +1,4 @@
+const path = require('path')
 const express = require('express')
 const cors = require('cors')
 const Arweave = require('arweave')
@@ -10,8 +11,8 @@ const arweave = Arweave.init({
   protocol: 'https'
 })
 LoggerFactory.INST.logLevel('fatal')
-const warp = WarpNodeFactory.memCached(arweave)
-const warp2 = WarpFactory.forMainnet()
+const warp = WarpNodeFactory.fileCached(arweave, path.join(__dirname, 'cache1'))
+//const warp2 = WarpFactory.forMainnet()
 const app = express()
 
 warp.contract('aSMILD7cEJr93i7TAVzzMjtci_sGkXcWnqpDkG6UGcA')
@@ -21,6 +22,14 @@ warp.contract('aSMILD7cEJr93i7TAVzzMjtci_sGkXcWnqpDkG6UGcA')
     internalWrites: true
   }).readState()
   .then(_ => console.log('preloading stamps contract...'))
+
+warp.contract('aSMILD7cEJr93i7TAVzzMjtci_sGkXcWnqpDkG6UGcA')
+  .setEvaluationOptions({
+    allowUnsafeClient: true,
+    allowBigInt: true,
+    internalWrites: true
+  }).readState()
+  .then(_ => console.log('preloading bar contract...'))
 
 app.use(cors({ credentials: true }))
 
