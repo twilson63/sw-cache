@@ -21,7 +21,7 @@ app.get('/:contract', async (req, res) => {
         allowBigInt: true,
         internalWrites: true
       }).readState()
-    console.log(result.cachedValue.errors)
+    //console.log(result.cachedValue.errors)
     res.send(result.cachedValue.state)
     //res.send(result.state)
   } catch (e) {
