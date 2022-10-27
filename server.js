@@ -2,10 +2,10 @@ const path = require('path')
 const express = require('express')
 const cors = require('cors')
 
-const { WarpFactory, LoggerFactory } = require('warp-contracts')
+const { WarpFactory, LoggerFactory, defaultCacheOptions } = require('warp-contracts')
 
 LoggerFactory.INST.logLevel('fatal')
-const warp = WarpFactory.forMainnet()
+const warp = WarpFactory.forMainnet({ ...defaultCacheOptions, inMemory: true })
 const app = express()
 
 app.use(cors({ credentials: true }))
@@ -21,7 +21,7 @@ app.get('/:contract', async (req, res) => {
         allowBigInt: true,
         internalWrites: true
       }).readState()
-    //console.log(result)
+    console.log(result.cachedValue.errors)
     res.send(result.cachedValue.state)
     //res.send(result.state)
   } catch (e) {
