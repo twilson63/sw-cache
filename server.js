@@ -32,7 +32,6 @@ app.get('/:contract', async (req, res) => {
 })
 
 app.post('/:contract', express.json(), async (req, res) => {
-  console.log('got fpjson request')
   if (!req.params.contract) {
     return res.status(400).send({ message: 'no contract specified' })
   }
@@ -45,8 +44,7 @@ app.post('/:contract', express.json(), async (req, res) => {
       }).readState()
     //console.log(result.cachedValue.errors)
     const fpresult = fpjson.default([req.body, result.cachedValue.state])
-    console.log('result', fpresult)
-    res.send(fpresult)
+    res.send({ result: fpresult })
     //res.send(result.state)
   } catch (e) {
     console.log(e.message)
