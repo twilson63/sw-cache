@@ -18,7 +18,7 @@ app.get('/:contract', async (req, res) => {
   try {
     const result = await warp.contract(req.params.contract)
       .setEvaluationOptions({
-        allowUnsafeClient: true,
+        unsafeClient: 'allow',
         allowBigInt: true,
         internalWrites: true
       }).readState()
@@ -38,7 +38,7 @@ app.post('/:contract', express.json(), async (req, res) => {
   try {
     const result = await warp.contract(req.params.contract)
       .setEvaluationOptions({
-        allowUnsafeClient: true,
+        unsafeClient: 'allow',
         allowBigInt: true,
         internalWrites: true
       }).readState()
