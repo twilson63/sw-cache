@@ -18,9 +18,10 @@ app.get('/:contract', async (req, res) => {
   try {
     const result = await warp.contract(req.params.contract)
       .setEvaluationOptions({
-        unsafeClient: 'allow',
+        allowUnsafeClient: true,
         allowBigInt: true,
-        internalWrites: true
+        internalWrites: true,
+        useVM2: true
       }).readState()
     //console.log(result.cachedValue.errors)
     res.send(result.cachedValue.state)
@@ -40,7 +41,8 @@ app.post('/:contract', express.json(), async (req, res) => {
       .setEvaluationOptions({
         unsafeClient: 'allow',
         allowBigInt: true,
-        internalWrites: true
+        internalWrites: true,
+        useVM2: true
       }).readState()
     //console.log(result.cachedValue.errors)
     const fpresult = fpjson.default([req.body, result.cachedValue.state])
