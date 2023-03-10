@@ -85,7 +85,9 @@ app.get('/', async (req, res) => {
 
 app.listen(3000)
 
+/*
 process.on('uncaughtException', error => {
   console.log(error)
 
 })
+*/
