@@ -1,7 +1,7 @@
 {
   "name": "stamp-cache",
-  "version": "1.0.0",
-  "main": "index.js",
+  "version": "0.0.4",
+  "main": "server.js",
   "repository": "https://github.com/twilson63/stamp-cache.git",
   "author": "Tom Wilson <tom@hyper.io>",
   "license": "MIT",

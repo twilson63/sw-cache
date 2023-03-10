@@ -18,6 +18,37 @@ const state = await fetch(`${CACHE}/${CONTRACT}`).then(res => res.json())
 console.log(state)
 ```
 
+### Sync STATE:
+
+```
+GET /contract?id=[CONTRACT]
+#> { sortKey, state, validity}
+```
+
+This function enables you to sync state in the browser!
+
+#### Example
+
+```js
+console.time('bar-state')
+const contract = await _warp.contract('VFr3Bk-uM-motpNNkkFg4lNW1BMmSfzqsVO551Ho4hA')
+  .syncState(barUrl, { validity: true })
+
+const { sortKey } = await _warp.stateEvaluator.latestAvailableState('VFr3Bk-uM-motpNNkkFg4lNW1BMmSfzqsVO551Ho4hA');
+
+console.log(sortKey);
+
+const result = await _warp.contract('VFr3Bk-uM-motpNNkkFg4lNW1BMmSfzqsVO551Ho4hA').setEvaluationOptions({
+  internalWrites: true,
+  allowBigInt: true,
+  unsafeClient: 'allow'
+}).readState()
+
+
+console.timeEnd('bar-state')
+```
+
+
 ### POST FP-JSON to return partial state
 
 Overtime the state object can grow large and it could be a challenge to pull the whole state object to the client and then filter, sort and transform the data from the state that you need. By posting a FP-JSON 
