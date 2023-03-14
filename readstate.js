@@ -1,15 +1,14 @@
 const { WarpFactory, LoggerFactory, defaultCacheOptions } = require('warp-contracts')
 
-const STAMP = 'FMRHYgSijiUNBrFy-XqyNNXenHsCV0ThR4lGAPO4chA'
+const STAMP = '61vg8n54MGSC9ZHfSVAtQp4WjNb20TaThu6bkQ86pPI'
 const BAR = 'VFr3Bk-uM-motpNNkkFg4lNW1BMmSfzqsVO551Ho4hA'
-
+const HEIGHT = 1137824
 const warp = WarpFactory.forMainnet()
 async function main() {
 
   const result = await warp.contract(STAMP)
     .setEvaluationOptions({
-      allowUnsafeClient: true,
-      //unsafeClient: 'allow',
+      unsafeClient: 'allow',
       allowBigInt: true,
       internalWrites: true,
       useVM2: true
@@ -23,7 +22,6 @@ async function main() {
   const result2 = await warp.contract(BAR)
     .setEvaluationOptions({
       unsafeClient: 'allow',
-      //allowUnsafeClient: true,
       allowBigInt: true,
       internalWrites: true,
       useVM2: true
