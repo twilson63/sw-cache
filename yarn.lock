@@ -39,16 +39,6 @@ accepts@~1.3.8:
     mime-types "~2.1.34"
     negotiator "0.6.3"
 
-acorn-walk@^8.2.0:
-  version "8.2.0"
-  resolved "https://registry.yarnpkg.com/acorn-walk/-/acorn-walk-8.2.0.tgz#741210f2e2426454508853a2f44d0ab83b7f69c1"
-  integrity sha512-k+iyHEuPgSw6SbuDpGQM+06HQUa04DZ3o+F6CSzXMvvI5KMvnaEqXe+YVe555R9nn6GPt404fos4wcgpw12SDA==
-
-acorn@^8.7.0:
-  version "8.8.1"
-  resolved "https://registry.yarnpkg.com/acorn/-/acorn-8.8.1.tgz#0a3f9cbecc4ec3bea6f0a80b66ae8dd2da250b73"
-  integrity sha512-7zFpHzhnqYKrkYdUjF1HI1bzd0VygEGX8lFk4k5zVMqHEoES+P+7TKI+EvLO9WVMJ8eekdO0aDEK044xTXwPPA==
-
 ansi-colors@4.1.1:
   version "4.1.1"
   resolved "https://registry.yarnpkg.com/ansi-colors/-/ansi-colors-4.1.1.tgz#cbb9ae256bf750af1eab344f229aa27fe94ba348"
@@ -1594,18 +1584,10 @@ vary@^1, vary@~1.1.2:
   resolved "https://registry.yarnpkg.com/vary/-/vary-1.1.2.tgz#2299f02c6ded30d4a5961b0b9f74524a18f634fc"
   integrity sha512-BNGbWLfd0eUPabhkXUVm0j8uuvREyTh5ovRa/dyow/BqAbZJyC+5fU+IzQOzmAKzYqYRAISoRhdQr3eIZ/PXqg==
 
-vm2@3.9.13:
-  version "3.9.13"
-  resolved "https://registry.yarnpkg.com/vm2/-/vm2-3.9.13.tgz#774a1a3d73b9b90b1aa45bcc5f25e349f2eef649"
-  integrity sha512-0rvxpB8P8Shm4wX2EKOiMp7H2zq+HUE/UwodY0pCZXs9IffIKZq6vUti5OgkVCTakKo9e/fgO4X1fkwfjWxE3Q==
-  dependencies:
-    acorn "^8.7.0"
-    acorn-walk "^8.2.0"
-
-warp-contracts@^1.2.56:
-  version "1.2.56"
-  resolved "https://registry.yarnpkg.com/warp-contracts/-/warp-contracts-1.2.56.tgz#dbd51badee1f726772069c33b0d7cb8ae0f3815b"
-  integrity sha512-cCWJJya0WWo0tspGwB7H8cF2exji5VlYuI7ON461z1vkzjTLLLTXJCGSBuhQSLO2oEtvlffJ1cRgHHlajJiVOg==
+warp-contracts@^1.4.2:
+  version "1.4.2"
+  resolved "https://registry.yarnpkg.com/warp-contracts/-/warp-contracts-1.4.2.tgz#d8fb1da5fa1ea1da2dd83052b7a2e24170fefb2e"
+  integrity sha512-YCZNT2rzODy9gcSAOXC6j4PWGlxA9oCV/Gydkcoz4VK2OXwo05P7bzqyatWBIb/oHcYqN0dcEBDc+XWqJdlo2Q==
   dependencies:
     "@idena/vrf-js" "^1.0.1"
     archiver "^5.3.0"
@@ -1620,7 +1602,6 @@ warp-contracts@^1.2.56:
     safe-stable-stringify "2.4.1"
     stream-buffers "^3.0.2"
     unzipit "^1.4.0"
-    vm2 "3.9.13"
     warp-isomorphic "1.0.4"
     warp-wasm-metering "1.0.1"
 

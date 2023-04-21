@@ -8,6 +8,7 @@ const { WarpFactory, LoggerFactory, defaultCacheOptions } = require('warp-contra
 LoggerFactory.INST.logLevel('fatal')
 const warp = WarpFactory.forMainnet()
 const app = express()
+const BAR = 'VFr3Bk-uM-motpNNkkFg4lNW1BMmSfzqsVO551Ho4hA'
 
 app.use(cors({ credentials: true }))
 
@@ -18,11 +19,13 @@ app.get('/contract', async (req, res) => {
   try {
     const result = await warp.contract(req.query.id)
       .setEvaluationOptions({
-        allowUnsafeClient: true,
+        remoteStateSyncEnabled: req.query.id !== BAR,
+        unsafeClient: 'allow',
         allowBigInt: true,
         internalWrites: true,
         useVM2: true
       }).readState()
+
     //console.log(result.cachedValue.errors)
     res.send({
       sortKey: result.sortKey,
@@ -43,7 +46,7 @@ app.get('/:contract', async (req, res) => {
   try {
     const result = await warp.contract(req.params.contract)
       .setEvaluationOptions({
-        allowUnsafeClient: true,
+        unsafeClient: 'allow',
         allowBigInt: true,
         internalWrites: true,
         useVM2: true
