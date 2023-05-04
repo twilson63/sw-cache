@@ -1,27 +1,3 @@
-2023/04/21-15:14:00.451317 7fcd613fd640 Recovering log #1197
-2023/04/21-15:14:00.512816 7fcd613fd640 Level-0 table #1200: started
-2023/04/21-15:14:00.623372 7fcd613fd640 Level-0 table #1200: 22602623 bytes OK
-2023/04/21-15:14:00.631468 7fcd613fd640 Delete type=0 #1197
-2023/04/21-15:14:00.633101 7fcd613fd640 Delete type=3 #1118
-2023/04/21-15:14:00.633344 7fcacbfff640 Compacting 4@0 + 1@1 files
-2023/04/21-15:14:00.634722 7fcacbfff640 Generated table #1202@0: 30 keys, 36412 bytes
-2023/04/21-15:14:00.724678 7fcacbfff640 Generated table #1203@0: 1 keys, 16016997 bytes
-2023/04/21-15:14:00.826901 7fcacbfff640 Generated table #1204@0: 1 keys, 16020533 bytes
-2023/04/21-15:14:00.896041 7fcacbfff640 Generated table #1205@0: 1 keys, 16020918 bytes
-2023/04/21-15:14:00.998622 7fcacbfff640 Generated table #1206@0: 1 keys, 22601335 bytes
-2023/04/21-15:14:00.998649 7fcacbfff640 Compacted 4@0 + 1@1 files => 70696195 bytes
-2023/04/21-15:14:00.999262 7fcacbfff640 compacted to: files[ 0 10 21 189 0 0 0 ]
-2023/04/21-15:14:01.000018 7fcacbfff640 Delete type=2 #1200
-2023/04/21-15:14:01.005149 7fcacbfff640 Delete type=2 #1188
-2023/04/21-15:14:01.006765 7fcacbfff640 Delete type=2 #1194
-2023/04/21-15:14:01.009618 7fcacbfff640 Delete type=2 #1196
-2023/04/21-15:14:01.011824 7fcacbfff640 Delete type=2 #1198
-2023/04/21-15:14:01.014732 7fcacbfff640 Moved #1203 to level-2 16016997 bytes OK: files[ 0 9 22 189 0 0 0 ]
-2023/04/21-15:14:01.015438 7fcacbfff640 Moved #1204 to level-2 16020533 bytes OK: files[ 0 8 23 189 0 0 0 ]
-2023/04/21-15:14:01.015973 7fcacbfff640 Moved #1205 to level-2 16020918 bytes OK: files[ 0 7 24 189 0 0 0 ]
-2023/04/21-15:14:01.016610 7fcacbfff640 Moved #1206 to level-2 22601335 bytes OK: files[ 0 6 25 189 0 0 0 ]
-2023/04/21-15:14:01.017081 7fcacbfff640 Moved #1179 to level-3 16014981 bytes OK: files[ 0 6 24 190 0 0 0 ]
-2023/04/21-15:14:01.017724 7fcacbfff640 Moved #1189 to level-3 16015519 bytes OK: files[ 0 6 23 191 0 0 0 ]
-2023/04/21-15:14:01.018244 7fcacbfff640 Moved #1190 to level-3 16016079 bytes OK: files[ 0 6 22 192 0 0 0 ]
-2023/04/21-15:14:01.018792 7fcacbfff640 Moved #1191 to level-3 16016464 bytes OK: files[ 0 6 21 193 0 0 0 ]
-2023/04/21-15:14:01.019405 7fcacbfff640 Moved #1192 to level-3 16016612 bytes OK: files[ 0 6 20 194 0 0 0 ]
+2023/05/04-13:05:40.609005 7f989d3fd640 Recovering log #1209
+2023/05/04-13:05:40.614466 7f989d3fd640 Delete type=0 #1209
+2023/05/04-13:05:40.614497 7f989d3fd640 Delete type=3 #1207

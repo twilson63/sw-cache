@@ -24,7 +24,14 @@ app.get('/contract', async (req, res) => {
         allowBigInt: true,
         internalWrites: true,
         useVM2: true
-      }).readState()
+      }).readState().catch(e => warp.contract(req.query.id)
+        .setEvaluationOptions({
+          remoteStateSyncEnabled: false,
+          unsafeClient: 'allow',
+          allowBigInt: true,
+          internalWrites: true,
+          useVM2: true
+        }).readState())
 
     //console.log(result.cachedValue.errors)
     res.send({
