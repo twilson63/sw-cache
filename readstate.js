@@ -1,35 +1,30 @@
 const { WarpFactory, LoggerFactory, defaultCacheOptions } = require('warp-contracts')
 
-const STAMP = '61vg8n54MGSC9ZHfSVAtQp4WjNb20TaThu6bkQ86pPI'
-const BAR = 'VFr3Bk-uM-motpNNkkFg4lNW1BMmSfzqsVO551Ho4hA'
-const HEIGHT = 1137824
+const STAMP = 'TlqASNDLA1Uh8yFiH-BzR_1FDag4s735F3PoUFEv2Mo'
+const BAR = 'KTzTXT_ANmF84fWEKHzWURD1LWd9QaFR9yfYUwH2Lxw'
+const UCM = 'pKAUV26rFgG13XwS7oZ1IQ8dDIRcdV9xnC8XEnZ7cfQ'
+
+const HEIGHT = 1200000
 const warp = WarpFactory.forMainnet()
 async function main() {
 
-  // const result = await warp.contract(STAMP)
-  //   .setEvaluationOptions({
-  //     unsafeClient: 'allow',
-  //     allowBigInt: true,
-  //     internalWrites: true,
-  //     useVM2: true
-  //   }).readState()
+  await readState(UCM)
+  //  await readState(STAMP)
+  //  await readState(BAR)
+}
 
-  //console.log(result.cachedValue)
+main()
 
-  // console.log(result.cachedValue.state.balances['vh-NTHVvlKZqRxc8LyyTNok65yQ55a_PJ1zWLb9G2JI'] / 1e12)
-  // console.log(result.cachedValue.state.balances['h7wP8NjoGkJTdLXC6kwS6fLTNgfeYbZr9YoED5NFQX0'] / 1e12)
 
-  const result2 = await warp.contract(BAR)
+async function readState(CONTRACT) {
+
+  const result2 = await warp.contract(CONTRACT)
     .setEvaluationOptions({
-      unsafeClient: 'allow',
+      unsafeClient: 'skip',
       allowBigInt: true,
       internalWrites: true,
       useVM2: true
     }).readState()
-
-  console.log(result2.cachedValue.state.balances['vh-NTHVvlKZqRxc8LyyTNok65yQ55a_PJ1zWLb9G2JI'] / 1e6)
-  console.log(result2.cachedValue.state.balances['h7wP8NjoGkJTdLXC6kwS6fLTNgfeYbZr9YoED5NFQX0'] / 1e6)
+  console.log(result2.cachedValue)
 
 }
-
-main()
